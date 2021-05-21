@@ -1,0 +1,28 @@
+version: '3.5'
+services:
+    postgres:
+        container_name: postgres
+        build: ./
+        image: fbrcode/postgres:latest
+        restart: unless-stopped
+        volumes:
+            - postgres-volume:/var/lib/postgresql/data
+            - ./sql:/sql
+            - ./sql/init.sql:/docker-entrypoint-initdb.d/00-init.sql
+            - ./tests:/tests
+        ports:
+            - ${POSTGRES_HOST_PORT}:5432
+        environment:
+            - POSTGRES_USER
+            - POSTGRES_PASSWORD
+            - POSTGRES_DB
+        healthcheck:
+            test: ['CMD-SHELL', 'pg_isready -U postgres']
+            interval: 10s
+            timeout: 5s
+            retries: 3
+volumes:
+    postgres-volume:
+networks:
+    default:
+        name: my-network

@@ -1,0 +1,36 @@
+{
+  "sql-file": true,
+  "dev": {
+    "driver": "pg",
+    "user": {
+      "ENV": "POSTGRES_USER"
+    },
+    "password": {
+      "ENV": "POSTGRES_PASSWORD"
+    },
+    "database": {
+      "ENV": "POSTGRES_DB"
+    },
+    "port": {
+      "ENV": "POSTGRES_HOST_PORT"
+    }
+  },
+  "deploy": {
+    "driver": "pg",
+    "user": {
+      "ENV": "POSTGRES_USER_DEPLOY"
+    },
+    "password": {
+      "ENV": "POSTGRES_PASSWORD_DEPLOY"
+    },
+    "database": {
+      "ENV": "POSTGRES_DB_DEPLOY"
+    },
+    "port": {
+      "ENV": "POSTGRES_PORT_DEPLOY"
+    },
+    "overwrite": {
+      "native": true
+    }
+  }
+}
