@@ -5,27 +5,10 @@
   "scripts": {
     "dump-schema": "docker-compose exec database pg_dump -s -U postgres sample > sql/schema.sql",
     "seed-database": "cat sql/seed.sql | docker-compose exec -T database bash -c \"psql -U postgres sample\"",
-    "test": "docker-compose exec database bash -c \"pg_prove -U postgres -d sample /tests/*.sql\"",
-    "migrate:test": "npm run migrate:down && npm run migrate:up && npm run test",
-    "migrate:create": "db-migrate create",
-    "migrate:reset": "db-migrate reset",
-    "migrate:up": "db-migrate up",
-    "deploy": "npm run -- migrate:up -- -e deploy",
-    "migrate:down": "db-migrate down"
-  },
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fbrcode/postgres-db.git"
+    "test": "docker-compose exec database bash -c \"pg_prove -U postgres -d sample /tests/*.sql\""
   },
   "license": "MIT",
-  "homepage": "https://github.com/fbrcode/postgres-db#readme",
   "dependencies": {
-    "cross-var": "^1.1.0",
-    "db-migrate": "^0.11.11",
-    "db-migrate-pg": "git+https://github.com/fbrcode/pg.git#Cf06630",
-    "dotenv": "^8.2.0",
-    "dotenv-cli": "^4.0.0",
-    "pg-native": "^3.0.0"
+    "dotenv": "^8.2.0"
   }
 }
