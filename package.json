@@ -26,6 +26,6 @@
     "db-migrate-pg": "git+https://github.com/fbrcode/pg.git#Cf06630",
     "dotenv": "^8.2.0",
     "dotenv-cli": "^4.0.0",
-    "pg-native": "^3.0.0"
+    "pg-native": "^3.0.1"
   }
 }
